@@ -11,6 +11,12 @@
 #                                                                              #
 # **************************************************************************** #
 
+# check root if
+if [[ $EUID -ne 0 ]]; then
+ echo "This script must be run as root"
+ exit 1
+fi
+
 # get latest package lists
 apt-get update
 # install ssh
